@@ -11,7 +11,7 @@ function drop(obj) {
     obj.preventDefault();
     var data = obj.dataTransfer.getData("text");
     obj.currentTarget.appendChild(document.getElementById(data));
-    obj.taskStatus.innerHTML= "obj.currentTarget";
+
 }
 //create new task block
 function createTask(){
@@ -51,13 +51,11 @@ function saveTask(){
     todo.innerHTML += `<div class="item-input" id="${taskName.toLowerCase().split(" ").join("")}" draggable="true" ondragstart="drag(event)">
     <strong>${taskName}</strong>
     <span class="options">
-        <i class="fas fa-edit" onclick="editItem(this)"></i>
         <i class="fas fa-trash-alt" onclick="deleteItem(this)"></i>
     </span>
-    <hr><div class="task-description">Description: ${taskDesc} </div>
-    <div class="task-deadline">Deadline: ${taskDeadline}</div>
-    <div class="task-assignee">Assignee: ${taskassignee}</div>
-    <div class="task-status">Status: ${taskStatus}</div>
+    <hr><div class="task-description" contenteditable="true">Description: ${taskDesc} </div>
+    <div class="task-deadline" contenteditable="true">Deadline: ${taskDeadline}</div>
+    <div class="task-assignee" contenteditable="true">Assignee: ${taskassignee}</div>
     </div>`
     acceptData();
     }
@@ -66,14 +64,11 @@ function saveTask(){
     backlog.innerHTML += `<div class="item-input" id="${taskName.split(" ").join("")}" draggable="true" ondragstart="drag(event)">
     ${taskName}
     <span class="options">
-        <i class="fas fa-edit" onclick="editItem(this)"></i>
         <i class="fas fa-trash-alt" onclick="deleteItem(this)"></i>
     </span>
-    <hr><div class="task-description">Description: ${taskDesc} </div>
-    
-    <div class="task-deadline">Deadline: ${taskDeadline}</div>
-    <div class="task-assignee">Assignee: ${taskassignee}</div>
-    <div class="task-status">Status: ${taskStatus}</div>
+    <hr><div class="task-description" contenteditable="true">Description: ${taskDesc} </div>
+    <div class="task-deadline" contenteditable="true">Deadline: ${taskDeadline}</div>
+    <div class="task-assignee" contenteditable="true">Assignee: ${taskassignee}</div>
     </div>`
     acceptData();
     }
@@ -82,29 +77,23 @@ function saveTask(){
         inProgress.innerHTML += `<div class="item-input" id="${taskName.split(" ").join("")}" draggable="true" ondragstart="drag(event)">
         ${taskName}
         <span class="options">
-            <i class="fas fa-edit" onclick="editItem(this)"></i>
             <i class="fas fa-trash-alt" onclick="deleteItem(this)"></i>
         </span>
-        <hr><div class="task-description">Description: ${taskDesc} </div>
-        
-        <div class="task-deadline">Deadline: ${taskDeadline}</div>
-        <div class="task-assignee">Assignee: ${taskassignee}</div>
-        <div class="task-status">Status: ${taskStatus}</div>
+        <hr><div class="task-description" contenteditable="true">Description: ${taskDesc} </div>
+        <div class="task-deadline" contenteditable="true">Deadline: ${taskDeadline}</div>
+        <div class="task-assignee" contenteditable="true">Assignee: ${taskassignee}</div>
         </div>`
         acceptData();
     }
-     else if(taskStatus =="inTesting"){
+    else if(taskStatus =="inTesting"){
             inTesting.innerHTML += `<div class="item-input" id="${taskName.split(" ").join("")}" draggable="true" ondragstart="drag(event)">
             ${taskName}
             <span class="options">
-                <i class="fas fa-edit" onclick="editItem(this)"></i>
                 <i class="fas fa-trash-alt" onclick="deleteItem(this)"></i>
             </span>
-            <hr><div class="task-description">Description: ${taskDesc} </div>
-            
-            <div class="task-deadline">Deadline: ${taskDeadline}</div>
-            <div class="task-assignee">Assignee: ${taskassignee}</div>
-            <div class="task-status">Status: ${taskStatus}</div>
+            <hr><div class="task-description" contenteditable="true">Description: ${taskDesc} </div>
+            <div class="task-deadline" contenteditable="true">Deadline: ${taskDeadline}</div>
+            <div class="task-assignee" contenteditable="true">Assignee: ${taskassignee}</div>
             </div>`
             acceptData();
     }
@@ -112,14 +101,11 @@ function saveTask(){
                 done.innerHTML += `<div class="item-input" id="${taskName.split(" ").join("")}" draggable="true" ondragstart="drag(event)">
                 ${taskName}
                 <span class="options">
-                    <i class="fas fa-edit" onclick="editItem(this)"></i>
                     <i class="fas fa-trash-alt" onclick="deleteItem(this)"></i>
                 </span>
-                <hr><div class="task-description">Description: ${taskDesc} </div>
-                
-                <div class="task-deadline">Deadline: ${taskDeadline}</div>
-                <div class="task-assignee">Assignee: ${taskassignee}</div>
-                <div class="task-status">Status: ${taskStatus}</div>
+                <hr><div class="task-description" contenteditable="true">Description: ${taskDesc} </div>
+                <div class="task-deadline" contenteditable="true">Deadline: ${taskDeadline}</div>
+                <div class="task-assignee" contenteditable="true">Assignee: ${taskassignee}</div>
                 </div>`
                 acceptData();
     }
@@ -135,7 +121,6 @@ let acceptData= () => {
     data.push({
         tname : taskName,
         description : taskDesc,
-        tstatus : taskStatus,
         assignee : taskassignee,
         deadline : taskDeadline
     });
@@ -160,8 +145,6 @@ let editItem = (e) => {
     taskDesc.value = e.parentElement.previousElementSibling.innerHTML;
     e.parentElement.parentElement.remove();
 };
-
-
 
 // function to update data by using AJAX
 

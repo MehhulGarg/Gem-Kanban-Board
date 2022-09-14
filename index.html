@@ -15,27 +15,24 @@
     </div> -->
     <div class="board">
         <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <div class="column-title">ToDo</div>
+            <div class="column-title">ToDo <button class="add-item" onclick="createTask()">Create New Task</button></div>
             <div class="column-items">
-                <div class="item-input" draggable="true" ondragstart="drag(event)" id="task1"><strong>CSS</strong><span class="options">
+                <!-- <div class="item-input" draggable="true" ondragstart="drag(event)" id="task1"><strong>CSS</strong><span class="options">
                     <i class="fas fa-edit" onclick="editItem(this)"></i>
                     <i class="fas fa-trash-alt" onclick="deleteItem(this)"></i>
                   </span>
                     <hr>
-                    <div class="task-description">Description: Learning CSS</div>
-                    <div class="task-deadline">Deadline: 2022/08/12</div>
-                    <div class="task-assignee">Assignee: A</div>
-                    <div class="task-status">Status: Todo</div>
-                </div>
-                <div class="dropzone"></div>
+                    <div class="task-description" contenteditable="true">Description: Learning CSS</div>
+                    <div class="task-deadline" contenteditable="true">Deadline: 2022/08/12</div>
+                    <div class="task-assignee" contenteditable="true">Assignee: A</div>
+                </div> -->
             </div>
-            <button class="add-item" onclick="createTask()">Create New Task</button>
+            
         </div>
 
         <div class="column" id="backlog" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="column-title">Backlogs</div>
             <div class="column-items">
-                <div class="dropzone"></div>
             </div>
 
         </div>
@@ -43,7 +40,6 @@
         <div class="column" id="inProgress" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="column-title">In Progress</div>
             <div class="column-items">
-                <div class="dropzone"></div>
             </div>
 
         </div>
@@ -51,7 +47,6 @@
         <div class="column" id="inTesting" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="column-title">In Testing</div>
             <div class="column-items">
-                <div class="dropzone"></div>
             </div>
 
         </div>
@@ -59,7 +54,6 @@
         <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="column-title">Done</div>
             <div class="column-items">
-                <div class="dropzone"></div>
             </div>
 
         </div>
@@ -98,7 +92,6 @@
                 </select>
             </span>
             <span class="create-row-buttons">
-                <button class="new-btn" id="edit-button" onclick="editTask()">Edit</span>
                 <button class="new-btn" id="save-button" onclick="saveTask()">Save</span>
                 <button class="new-btn" id="cancel-button" onclick="createTask()">Cancel</span>
             </span>
